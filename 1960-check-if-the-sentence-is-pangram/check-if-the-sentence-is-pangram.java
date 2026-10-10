@@ -4,21 +4,21 @@ class Solution {
         if(length <26){
             return false;
         }
+        int[] array =new int[26];
 
-       for(int i = 0;i<26;i++){
-        char alpha =  (char)('a'+i);
-        boolean check =  false;
-        for(int j= 0;j<length;j++){
-            if(alpha== sentence.charAt(j)){
-                check = true;
-                  break;
-            }
-        }
-            if(!check){
+
+       for(int i = 0;i<sentence.length();i++){
+        int num =  sentence.charAt(i) - 'a';
+        array[num] = 1;
+       }
+        for(int j= 0;j<26;j++){
+            if(array[j] == 0){
                 return false;
             }
+        }
+            
 
-        }  
+         
         return true;
     }
 }
